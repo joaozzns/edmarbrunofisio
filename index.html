@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;1,400&display=swap"
     rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -72,6 +72,56 @@
         radial-gradient(ellipse at top right, rgba(168, 200, 184, 0.25), transparent 60%),
         radial-gradient(ellipse at bottom left, rgba(201, 169, 97, 0.08), transparent 55%),
         linear-gradient(180deg, #F8FAFC 0%, #F3EFE7 100%);
+    }
+
+    /* Título do hero */
+    .font-hero {
+      font-family: 'Cardo', serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    /* Selo "Baseado em evidência" */
+    .evidence-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(11, 61, 78, 0.08);
+      box-shadow:
+        0 1px 2px rgba(11, 61, 78, 0.06),
+        0 12px 32px -12px rgba(11, 61, 78, 0.28);
+    }
+
+    .evidence-card__mark {
+      background: linear-gradient(160deg, #0B3D4E 0%, #1a5a70 100%);
+      box-shadow: inset 0 0 0 1px rgba(201, 169, 97, 0.45);
+    }
+
+    .evidence-card__live {
+      position: relative;
+      width: 6px;
+      height: 6px;
+      border-radius: 9999px;
+      background: #5E9B7E;
+    }
+
+    .evidence-card__live::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: inherit;
+      border: 1px solid #5E9B7E;
+      opacity: 0;
+      animation: evidence-ping 2.4s ease-out infinite;
+    }
+
+    @keyframes evidence-ping {
+      0% { transform: scale(0.6); opacity: 0.7; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .evidence-card__live::after { animation: none; }
     }
 
     .section-divider {
@@ -274,7 +324,7 @@
             individualizado</span>
         </div>
 
-        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.02] text-petroleo">
+        <h1 class="font-hero text-5xl sm:text-6xl lg:text-7xl leading-[1.04] text-petroleo">
           Movimento <em class="italic text-dourado">sem dor.</em><br />
           Vida em <span class="gold-underline">plenitude.</span>
         </h1>
@@ -325,24 +375,23 @@
               class="w-full h-full object-cover object-center" />
           </div>
 
-          <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-5 max-w-[240px] animate-float">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-salvia-light flex items-center justify-center">
-                <svg class="text-petroleo" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
-                  viewBox="0 0 24 24">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" />
+          <div class="evidence-card absolute -bottom-7 -left-4 sm:-left-8 rounded-2xl pl-3 pr-6 py-3 animate-float">
+            <div class="flex items-center gap-4">
+              <div class="evidence-card__mark w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="text-dourado" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 3h6M10 3v6.2L4.6 18.4A1.7 1.7 0 0 0 6.1 21h11.8a1.7 1.7 0 0 0 1.5-2.6L14 9.2V3" />
+                  <path d="M7.5 15h9" />
                 </svg>
               </div>
               <div>
-                <p class="font-serif text-petroleo text-sm leading-tight">Baseado em evidência</p>
-                <p class="text-[11px] text-petroleo/60">Protocolos atualizados</p>
+                <p class="font-serif text-petroleo text-[17px] leading-none tracking-tight">Baseado em evidência</p>
+                <p class="mt-2 flex items-center gap-2 text-[10px] font-medium tracking-[0.18em] uppercase text-petroleo/55">
+                  <span class="evidence-card__live"></span>
+                  Protocolos atualizados
+                </p>
               </div>
             </div>
-          </div>
-
-          <div class="absolute -top-6 -right-4 bg-petroleo text-cream rounded-2xl shadow-2xl p-5 max-w-[230px]">
-            <p class="text-[11px] tracking-widest uppercase text-dourado mb-1">Atendimento 1:1</p>
-            <p class="font-serif text-lg leading-tight">Um paciente por horário, dedicação total.</p>
           </div>
         </div>
       </div>
