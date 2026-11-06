@@ -95,49 +95,6 @@
       margin-right: 0.3em;
     }
 
-    /* Selo "Baseado em evidência" */
-    .evidence-card {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(11, 61, 78, 0.08);
-      box-shadow:
-        0 1px 2px rgba(11, 61, 78, 0.06),
-        0 12px 32px -12px rgba(11, 61, 78, 0.28);
-    }
-
-    .evidence-card__mark {
-      background: linear-gradient(160deg, #0B3D4E 0%, #1a5a70 100%);
-      box-shadow: inset 0 0 0 1px rgba(201, 169, 97, 0.45);
-    }
-
-    .evidence-card__live {
-      position: relative;
-      width: 6px;
-      height: 6px;
-      border-radius: 9999px;
-      background: #5E9B7E;
-    }
-
-    .evidence-card__live::after {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: inherit;
-      border: 1px solid #5E9B7E;
-      opacity: 0;
-      animation: evidence-ping 2.4s ease-out infinite;
-    }
-
-    @keyframes evidence-ping {
-      0% { transform: scale(0.6); opacity: 0.7; }
-      100% { transform: scale(1.8); opacity: 0; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .evidence-card__live::after { animation: none; }
-    }
-
     .section-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(11, 61, 78, 0.15), transparent);
@@ -387,25 +344,6 @@
           <div class="photo-frame aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
             <img src="assets/dr-edmar-bruno.png" alt="Dr. Edmar Bruno — Fisioterapeuta · CREFITO 439402-F"
               class="w-full h-full object-cover object-center" />
-          </div>
-
-          <div class="evidence-card absolute -bottom-7 -left-4 sm:-left-8 rounded-2xl pl-3 pr-6 py-3 animate-float">
-            <div class="flex items-center gap-4">
-              <div class="evidence-card__mark w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
-                <svg class="text-dourado" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"
-                  stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 3h6M10 3v6.2L4.6 18.4A1.7 1.7 0 0 0 6.1 21h11.8a1.7 1.7 0 0 0 1.5-2.6L14 9.2V3" />
-                  <path d="M7.5 15h9" />
-                </svg>
-              </div>
-              <div>
-                <p class="font-serif text-petroleo text-[17px] leading-none tracking-tight">Baseado em evidência</p>
-                <p class="mt-2 flex items-center gap-2 text-[10px] font-medium tracking-[0.18em] uppercase text-petroleo/55">
-                  <span class="evidence-card__live"></span>
-                  Protocolos atualizados
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
